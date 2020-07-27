@@ -1,9 +1,6 @@
 package com.daya.android.recyclerview
 
-import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.daya.android.recyclerview.databinding.ItemSampleBinding
 
-class SampleRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val textView: TextView = itemView.findViewById(R.id.text_view)
-}
+class SampleRecyclerViewHolder(val binding: ItemSampleBinding) : RecyclerView.ViewHolder(binding.root)

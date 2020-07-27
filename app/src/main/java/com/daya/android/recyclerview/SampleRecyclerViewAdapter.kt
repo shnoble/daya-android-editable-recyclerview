@@ -3,6 +3,7 @@ package com.daya.android.recyclerview
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.daya.android.recyclerview.databinding.ItemSampleBinding
 
 class SampleRecyclerViewAdapter(
     items: List<String>
@@ -10,14 +11,13 @@ class SampleRecyclerViewAdapter(
     private val mutableItems: MutableList<String> = items.toMutableList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleRecyclerViewHolder {
-        val rootView =
-            LayoutInflater.from(parent.context).inflate(R.layout.layout_item, parent, false)
-        return SampleRecyclerViewHolder(rootView)
+        val binding = ItemSampleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SampleRecyclerViewHolder(binding)
     }
 
     override fun getItemCount() = mutableItems.size
 
     override fun onBindViewHolder(holder: SampleRecyclerViewHolder, position: Int) {
-        holder.textView.text = mutableItems[position]
+        holder.binding.text = mutableItems[position]
     }
 }
