@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="editable_recycler_view_image_description_move">Move Image</string>
+    <string name="editable_recycler_view_image_description_delete">Delete Image</string>
+</resources>
