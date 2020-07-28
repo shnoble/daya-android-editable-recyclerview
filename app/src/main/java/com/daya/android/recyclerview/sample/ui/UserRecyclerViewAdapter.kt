@@ -20,11 +20,7 @@ class UserRecyclerViewAdapter(
     }
     val items: List<User> = mutableItems
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int,
-        isEditing: Boolean
-    ): UserRecyclerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, isEditing: Boolean): UserRecyclerViewHolder {
         Log.d(TAG, "onCreateViewHolder")
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, true)
         return UserRecyclerViewHolder(binding)

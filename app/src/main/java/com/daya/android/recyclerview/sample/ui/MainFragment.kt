@@ -17,7 +17,7 @@ import com.daya.android.recyclerview.sample.model.User
 class MainFragment : Fragment() {
     private lateinit var viewAdapter: UserRecyclerViewAdapter
 
-    private val items = (0..100)
+    private var items = (0..100)
         .asSequence().map { User("Jack-$it", 10, "") }.toList()
 
     override fun onCreateView(
@@ -46,6 +46,11 @@ class MainFragment : Fragment() {
             completeButton.visibility = View.GONE
             viewAdapter.isEditing = false
             if (viewAdapter.items != items) {
+                items = mutableListOf<User>().apply {
+                    for ((index, user) in viewAdapter.items.withIndex()) {
+                        add(index, user.copy())
+                    }
+                }
                 Toast.makeText(this.context, "Changed", Toast.LENGTH_LONG).show()
             }
         }

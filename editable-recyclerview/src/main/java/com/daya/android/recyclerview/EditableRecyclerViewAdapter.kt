@@ -20,14 +20,14 @@ abstract class EditableRecyclerViewAdapter<VH : EditableRecyclerViewHolder> :
         fun requestDrag(viewHolder: RecyclerView.ViewHolder)
     }
 
-    abstract fun onCreateViewHolder(parent: ViewGroup, viewType: Int, isEditing: Boolean): VH
+    abstract fun onCreateViewHolder(parent: ViewGroup, isEditing: Boolean): VH
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Logger.d(TAG, "onCreateViewHolder")
         val rootView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_editable_recycler_view, parent, false)
         val contentLayout = rootView.findViewById<ViewGroup>(R.id.content_layout)
-        return onCreateViewHolder(contentLayout, viewType, isEditing)
+        return onCreateViewHolder(contentLayout, isEditing)
     }
 
     abstract fun onBindViewHolder(holder: VH, position: Int, isEditing: Boolean)
