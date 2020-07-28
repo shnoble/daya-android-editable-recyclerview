@@ -10,7 +10,9 @@ class EditableRecyclerViewHelper<VH : EditableRecyclerViewHolder>(
 
     fun attachToRecyclerView(recyclerView: RecyclerView) {
         viewAdapter.startDragListener = this
-        itemTouchHelper = ItemTouchHelper(ItemTouchCallback(viewAdapter))
+        itemTouchHelper = ItemTouchHelper(ItemTouchCallback(viewAdapter)).apply {
+            attachToRecyclerView(recyclerView)
+        }
     }
 
     override fun requestDrag(viewHolder: RecyclerView.ViewHolder) {

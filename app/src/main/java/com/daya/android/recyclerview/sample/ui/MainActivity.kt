@@ -1,7 +1,8 @@
-package com.daya.android.recyclerview
+package com.daya.android.recyclerview.sample.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.daya.android.recyclerview.sample.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

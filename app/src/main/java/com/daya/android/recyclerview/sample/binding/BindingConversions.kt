@@ -1,4 +1,4 @@
-package com.daya.android.recyclerview.binding
+package com.daya.android.recyclerview.sample.binding
 
 import android.view.View
 import androidx.databinding.BindingConversion

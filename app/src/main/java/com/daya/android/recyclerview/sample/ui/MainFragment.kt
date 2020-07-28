@@ -1,4 +1,4 @@
-package com.daya.android.recyclerview
+package com.daya.android.recyclerview.sample.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.daya.android.recyclerview.model.User
+import com.daya.android.recyclerview.EditableRecyclerViewHelper
+import com.daya.android.recyclerview.sample.R
+import com.daya.android.recyclerview.sample.model.User
 
 class MainFragment : Fragment() {
     private lateinit var viewAdapter: UserRecyclerViewAdapter
@@ -50,7 +52,7 @@ class MainFragment : Fragment() {
     }
 
     private fun setupRecyclerView(view: View, viewAdapter: UserRecyclerViewAdapter) {
-        view.findViewById<RecyclerView>(R.id.recycler_view).apply {
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
@@ -63,6 +65,8 @@ class MainFragment : Fragment() {
 
             addItemDecoration(DividerItemDecoration(this.context, LinearLayoutManager.VERTICAL))
         }
+        val editableRecyclerViewHelper = EditableRecyclerViewHelper(viewAdapter)
+        editableRecyclerViewHelper.attachToRecyclerView(recyclerView)
     }
 
     companion object {

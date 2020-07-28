@@ -6,11 +6,11 @@
     <data>
 
         <variable
-            name="editing"
+            name="isEditing"
             type="Boolean" />
         <variable
             name="user"
-            type="com.daya.android.recyclerview.model.User" />
+            type="com.daya.android.recyclerview.sample.model.User" />
     </data>
 
     <LinearLayout
@@ -58,7 +58,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:visibility="@{!editing}"
+                android:visibility="@{!isEditing}"
                 android:id="@+id/text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:visibility="@{editing}"
+                android:visibility="@{isEditing}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={user.address}"

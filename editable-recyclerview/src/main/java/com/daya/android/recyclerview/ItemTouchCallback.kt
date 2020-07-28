@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.daya.android.recyclerview.util.Logger
 
-internal class ItemTouchCallback<T: RecyclerView.ViewHolder>(
+internal class ItemTouchCallback<T : RecyclerView.ViewHolder>(
     private val contract: ItemTouchContract<T>
 ) : ItemTouchHelper.Callback() {
 
@@ -50,7 +50,7 @@ internal class ItemTouchCallback<T: RecyclerView.ViewHolder>(
         contract.onItemClear(viewHolder as T)
     }
 
-    interface ItemTouchContract<T: RecyclerView.ViewHolder> {
+    internal interface ItemTouchContract<T : RecyclerView.ViewHolder> {
         fun onItemMoved(from: Int, to: Int)
         fun onItemSelected(viewHolder: T)
         fun onItemClear(viewHolder: T)

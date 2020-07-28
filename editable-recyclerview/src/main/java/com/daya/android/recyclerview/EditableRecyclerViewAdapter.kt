@@ -1,6 +1,5 @@
 package com.daya.android.recyclerview
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ViewGroup
@@ -25,9 +24,8 @@ abstract class EditableRecyclerViewAdapter<VH : EditableRecyclerViewHolder> :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Logger.d(TAG, "onCreateViewHolder")
-        val context = parent.context
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val rootView = inflater.inflate(R.layout.item_editable_recycler_view, parent, false)
+        val rootView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_editable_recycler_view, parent, false)
         val contentLayout = rootView.findViewById<ViewGroup>(R.id.content_layout)
         return onCreateViewHolder(contentLayout, viewType, isEditing)
     }

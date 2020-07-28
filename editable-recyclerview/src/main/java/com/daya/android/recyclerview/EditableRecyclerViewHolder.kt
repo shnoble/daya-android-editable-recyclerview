@@ -4,11 +4,12 @@ import android.os.Build
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class EditableRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val blankLeft = itemView.findViewById<View>(R.id.blank_left)
-    private val blankRight = itemView.findViewById<View>(R.id.blank_right)
-    internal val deleteView = itemView.findViewById<View>(R.id.delete_view)
-    internal val moveView = itemView.findViewById<View>(R.id.move_view)
+abstract class EditableRecyclerViewHolder(itemView: View) :
+    RecyclerView.ViewHolder(itemView.rootView) {
+    private val blankLeft = itemView.rootView.findViewById<View>(R.id.blank_left)
+    private val blankRight = itemView.rootView.findViewById<View>(R.id.blank_right)
+    internal val deleteView = itemView.rootView.findViewById<View>(R.id.delete_view)
+    internal val moveView = itemView.rootView.findViewById<View>(R.id.move_view)
 
     internal var isEditing = false
         set(value) {
