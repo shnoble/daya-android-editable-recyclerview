@@ -15,6 +15,7 @@ import com.daya.android.recyclerview.sample.R
 import com.daya.android.recyclerview.sample.model.User
 
 class MainFragment : Fragment() {
+    private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: UserRecyclerViewAdapter
 
     private var items = (0..100)
@@ -57,7 +58,7 @@ class MainFragment : Fragment() {
     }
 
     private fun setupRecyclerView(view: View, viewAdapter: UserRecyclerViewAdapter) {
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view).apply {
+        recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
