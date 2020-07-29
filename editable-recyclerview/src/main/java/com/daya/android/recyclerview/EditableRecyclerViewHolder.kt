@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 abstract class EditableRecyclerViewHolder(itemView: View) :
     RecyclerView.ViewHolder(itemView.rootView) {
-    private val blankLeft = itemView.rootView.findViewById<View>(R.id.blank_left)
-    private val blankRight = itemView.rootView.findViewById<View>(R.id.blank_right)
     internal val deleteView = itemView.rootView.findViewById<View>(R.id.delete_view)
     internal val moveView = itemView.rootView.findViewById<View>(R.id.move_view)
 
@@ -15,13 +13,9 @@ abstract class EditableRecyclerViewHolder(itemView: View) :
         set(value) {
             field = value
             if (value) {
-                blankLeft.visibility = View.VISIBLE
-                blankRight.visibility = View.VISIBLE
                 deleteView.visibility = View.VISIBLE
                 moveView.visibility = View.VISIBLE
             } else {
-                blankLeft.visibility = View.GONE
-                blankRight.visibility = View.GONE
                 deleteView.visibility = View.GONE
                 moveView.visibility = View.GONE
             }
@@ -47,4 +41,8 @@ abstract class EditableRecyclerViewHolder(itemView: View) :
                 }
             }
         }
+
+    fun setBackgroundColor(color: Int) {
+        itemView.setBackgroundColor(color)
+    }
 }

@@ -1,5 +1,6 @@
 package com.daya.android.recyclerview.sample.ui
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,7 +28,9 @@ class UserRecyclerViewAdapter(
     ): UserRecyclerViewHolder {
         Log.d(TAG, "onCreateViewHolder")
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, true)
-        return UserRecyclerViewHolder(binding)
+        return UserRecyclerViewHolder(binding).apply {
+            setBackgroundColor(Color.WHITE)
+        }
     }
 
     override fun getItemCount() = mutableItems.size
