@@ -41,9 +41,7 @@ class UserRecyclerViewAdapter(
         isEditing: Boolean
     ) {
         Log.d(TAG, "onBindViewHolder: $position")
-        holder.binding.user = mutableItems[position]
-        holder.binding.isEditing = isEditing
-        holder.binding.executePendingBindings()
+        holder.bind(mutableItems[position], isEditing)
     }
 
     override fun onItemMoved(from: Int, to: Int) {
