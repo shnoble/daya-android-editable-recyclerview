@@ -11,10 +11,6 @@ abstract class EditableRecyclerViewAdapter<VH : EditableRecyclerViewHolder> :
     internal var startDragListener: StartDragListener? = null
 
     var editable: Boolean = false
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
 
     internal interface StartDragListener {
         fun requestDrag(viewHolder: RecyclerView.ViewHolder)
