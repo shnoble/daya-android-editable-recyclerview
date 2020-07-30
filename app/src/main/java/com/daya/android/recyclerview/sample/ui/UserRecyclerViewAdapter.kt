@@ -44,7 +44,7 @@ class UserRecyclerViewAdapter(
         holder.bind(mutableItems[position], editable)
     }
 
-    override fun onItemMoved(from: Int, to: Int) {
+    override fun onItemMoved(from: Int, to: Int): Boolean {
         if (from < to) {
             for (position in from until to) {
                 Collections.swap(mutableItems, position, position + 1)
@@ -55,6 +55,7 @@ class UserRecyclerViewAdapter(
             }
         }
         notifyItemMoved(from, to)
+        return true
     }
 
     override fun onItemRemoved(position: Int) {

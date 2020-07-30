@@ -27,8 +27,7 @@ internal class ItemTouchCallback<T : RecyclerView.ViewHolder>(
         target: RecyclerView.ViewHolder
     ): Boolean {
         Logger.d(TAG, "onMove: viewHolder(${viewHolder.adapterPosition}), target(${target.adapterPosition})")
-        contract.onItemMoved(viewHolder.adapterPosition, target.adapterPosition)
-        return true
+        return contract.onItemMoved(viewHolder.adapterPosition, target.adapterPosition)
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -51,7 +50,7 @@ internal class ItemTouchCallback<T : RecyclerView.ViewHolder>(
     }
 
     internal interface ItemTouchContract<T : RecyclerView.ViewHolder> {
-        fun onItemMoved(from: Int, to: Int)
+        fun onItemMoved(from: Int, to: Int): Boolean
         fun onItemSelected(viewHolder: T)
         fun onItemClear(viewHolder: T)
     }
