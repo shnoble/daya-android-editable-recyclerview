@@ -24,7 +24,7 @@ class UserRecyclerViewAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-        isEditing: Boolean
+        editable: Boolean
     ): UserRecyclerViewHolder {
         Log.d(TAG, "onCreateViewHolder")
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, true)
@@ -38,10 +38,10 @@ class UserRecyclerViewAdapter(
     override fun onBindViewHolder(
         holder: UserRecyclerViewHolder,
         position: Int,
-        isEditing: Boolean
+        editable: Boolean
     ) {
         Log.d(TAG, "onBindViewHolder: $position")
-        holder.bind(mutableItems[position], isEditing)
+        holder.bind(mutableItems[position], editable)
     }
 
     override fun onItemMoved(from: Int, to: Int) {

@@ -9,7 +9,7 @@ abstract class EditableRecyclerViewHolder(itemView: View) :
     internal val deleteView = itemView.rootView.findViewById<View>(R.id.delete_view)
     internal val moveView = itemView.rootView.findViewById<View>(R.id.move_view)
 
-    internal var isEditing = false
+    internal var editable = false
         set(value) {
             field = value
             if (value) {

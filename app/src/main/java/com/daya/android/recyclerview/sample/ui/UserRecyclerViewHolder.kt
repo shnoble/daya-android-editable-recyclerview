@@ -7,9 +7,9 @@ import com.daya.android.recyclerview.sample.model.User
 class UserRecyclerViewHolder(
     private val binding: ItemUserBinding
 ) : EditableRecyclerViewHolder(binding.root) {
-    fun bind(user: User, isEditing: Boolean) {
+    fun bind(user: User, editable: Boolean) {
         binding.user = user
-        binding.isEditing = isEditing
+        binding.editable = editable
         binding.executePendingBindings()
     }
 }

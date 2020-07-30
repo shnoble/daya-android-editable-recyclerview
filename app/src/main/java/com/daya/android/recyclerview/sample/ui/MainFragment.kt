@@ -40,12 +40,12 @@ class MainFragment : Fragment() {
         editButton.setOnClickListener {
             editButton.visibility = View.GONE
             completeButton.visibility = View.VISIBLE
-            viewAdapter.isEditing = true
+            viewAdapter.editable = true
         }
         completeButton.setOnClickListener {
             editButton.visibility = View.VISIBLE
             completeButton.visibility = View.GONE
-            viewAdapter.isEditing = false
+            viewAdapter.editable = false
             if (viewAdapter.items != items) {
                 items = mutableListOf<User>().apply {
                     for ((index, user) in viewAdapter.items.withIndex()) {

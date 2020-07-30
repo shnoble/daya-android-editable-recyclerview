@@ -10,7 +10,7 @@ abstract class EditableRecyclerViewAdapter<VH : EditableRecyclerViewHolder> :
     RecyclerView.Adapter<VH>(), ItemTouchCallback.ItemTouchContract<VH> {
     internal var startDragListener: StartDragListener? = null
 
-    var isEditing: Boolean = false
+    var editable: Boolean = false
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -20,17 +20,17 @@ abstract class EditableRecyclerViewAdapter<VH : EditableRecyclerViewHolder> :
         fun requestDrag(viewHolder: RecyclerView.ViewHolder)
     }
 
-    abstract fun onCreateViewHolder(parent: ViewGroup, viewType: Int, isEditing: Boolean): VH
+    abstract fun onCreateViewHolder(parent: ViewGroup, viewType: Int, editable: Boolean): VH
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Logger.d(TAG, "onCreateViewHolder")
         val rootView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_editable_recycler_view, parent, false)
         val contentLayout = rootView.findViewById<ViewGroup>(R.id.content_layout)
-        return onCreateViewHolder(contentLayout, viewType, isEditing)
+        return onCreateViewHolder(contentLayout, viewType, editable)
     }
 
-    abstract fun onBindViewHolder(holder: VH, position: Int, isEditing: Boolean)
+    abstract fun onBindViewHolder(holder: VH, position: Int, editable: Boolean)
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         Logger.d(TAG, "onBindViewHolder: $position")
@@ -49,8 +49,8 @@ abstract class EditableRecyclerViewAdapter<VH : EditableRecyclerViewHolder> :
             onItemRemoved(holder.adapterPosition)
             notifyItemRemoved(holder.adapterPosition)
         }
-        holder.isEditing = isEditing
-        onBindViewHolder(holder, position, isEditing)
+        holder.editable = editable
+        onBindViewHolder(holder, position, editable)
     }
 
     override fun onItemSelected(viewHolder: VH) {
